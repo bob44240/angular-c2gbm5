@@ -1,0 +1,13 @@
+<form [formGroup]="identifyForm" [disableControl]="!editMode">
+  <input type="radio" name="identity" value="yes" formControlName="identity" />
+  Yes
+  <input type="radio" name="identity" value="no" formControlName="identity" />
+  No
+
+  <input formControlName="identity" /> fred
+
+  <input
+    formControlName="identityname"
+    [disableControl]="!editMode || identifyForm.get('identity').value == 'no'"
+  />
+</form>

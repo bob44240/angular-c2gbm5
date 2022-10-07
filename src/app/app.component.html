@@ -1,0 +1,12 @@
+<form [formGroup]="parentForm" [disableControl]="!editMode" (ngSubmit)="onSave()">
+  <input formControlName="id">
+  <input formControlName="name">
+  <app-child-component [editMode]="editMode"></app-child-component>
+
+  <div>
+    <button (click)="editMode=true" *ngIf="editMode == false">Edit</button>
+    <button (click)="editMode=false" *ngIf="editMode == true">Cancel</button>
+    <button (click)="onSave()" *ngIf="editMode == true">Save</button>
+  </div>
+</form>
+<pre>{{parentForm?.getRawValue()|json}}</pre>
